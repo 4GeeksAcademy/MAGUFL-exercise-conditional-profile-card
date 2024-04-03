@@ -29,13 +29,28 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let defaultName = "Your name";
+  if (variables.name != null) defaultName = variables.name;
+
+  let defaultLastName = "Your last name";
+  if (variables.lastName != null) defaultLastName = variables.lastName;
+
+  let defaultRole = "Your role";
+  if (variables.role != null) defaultRole = variables.role;
+
+  let defaultCity = "Your city";
+  if (variables.city != null) defaultCity = variables.city;
+
+  let defaultCountry = "Your country";
+  if (variables.country != null) defaultCountry = variables.country;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${defaultName} ${defaultLastName}</h1>
+          <h2>${defaultRole}</h2>
+          <h3>${defaultCity}, ${defaultCountry}</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
